@@ -87,14 +87,16 @@ export function CombatCard({
                 onClick={() => onPick(i)}
                 className={`opt-btn px-2 py-2.5 ${cls}`}
               >
-                <span
-                  className={`num absolute left-1.5 top-1 ${view.botRemain !== null ? "text-[16px]" : "text-[9px]"}`}
-                  style={{ color: picked && view.flash ? "inherit" : "#8b99ad", opacity: 0.9 }}
-                >
-                  {view.botRemain !== null ? BOT_SHAPES[i] : keys[i]}
-                </span>
+                {view.botRemain === null && (
+                  <span
+                    className="num absolute left-1.5 top-1 text-[9px]"
+                    style={{ color: picked && view.flash ? "inherit" : "#8b99ad", opacity: 0.9 }}
+                  >
+                    {keys[i]}
+                  </span>
+                )}
                 <span className="num block text-center text-[19px] font-bold leading-none sm:text-[21px]">
-                  {opt}
+                  {view.botRemain !== null ? BOT_SHAPES[i] : opt}
                 </span>
               </button>
             );
