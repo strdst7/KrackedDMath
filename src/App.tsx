@@ -1266,8 +1266,8 @@ export default function App() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-[linear-gradient(to_top,rgba(6,8,12,0.86),transparent)]" />
 
       {/* --------------------------------- HUD ------------------------------- */}
-      <header className="absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-2 p-2 sm:p-3">
-        <div className="flex flex-wrap items-center gap-1.5">
+      <header className="game-header absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-2 p-2 sm:p-3">
+        <div className="game-header-info flex flex-wrap items-center gap-1.5">
           <div className="slab slab-sm">
             <div className="face flex items-center gap-2.5 px-2.5 py-1.5">
               <Brand compact />
@@ -1287,7 +1287,7 @@ export default function App() {
           {netBadge}
         </div>
 
-        <div className="flex flex-wrap items-center justify-end gap-1 sm:gap-1.5">
+        <div className="game-header-actions flex flex-wrap items-center justify-end gap-1 sm:gap-1.5">
           <button
             className="pill"
             style={{
@@ -1355,7 +1355,7 @@ export default function App() {
       />
 
       {/* tug meter */}
-      <div className="pointer-events-none absolute left-1/2 top-[27%] z-20 w-[min(420px,72vw)] -translate-x-1/2 sm:top-[28%]">
+      <div className="tug-meter pointer-events-none absolute left-1/2 top-[27%] z-20 w-[min(420px,72vw)] -translate-x-1/2 sm:top-[28%]">
         <div className="relative h-[9px] w-full border border-[#2c3846] bg-[#0a0d12]/85">
           <div className="absolute inset-y-0 left-0 w-1/2 bg-[linear-gradient(90deg,rgba(255,45,85,0.42),transparent)]" />
           <div className="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(270deg,rgba(37,217,255,0.42),transparent)]" />
@@ -1372,7 +1372,7 @@ export default function App() {
       </div>
 
       {/* ------------------------------ fighters ----------------------------- */}
-      <div className="absolute inset-x-0 top-[36%] z-10 h-[46%]">
+      <div className="fighters-stage absolute inset-x-0 top-[36%] z-10 h-[46%]">
         <div
           ref={stageRef}
           className="relative mx-auto h-full w-[min(940px,97vw)] will-change-transform"

@@ -20,7 +20,7 @@ export function Jumbotron({
   deadlock: boolean;
 }) {
   return (
-    <div className="pointer-events-none absolute left-1/2 top-[9%] z-20 w-[min(370px,76vw)] -translate-x-1/2 sm:top-[10%]">
+    <div className="scoreboard pointer-events-none absolute left-1/2 top-[9%] z-20 w-[min(370px,76vw)] -translate-x-1/2 sm:top-[10%]">
       <div className="slab slab-amber">
         <div className="face overflow-hidden">
           <div className="flex items-stretch">
