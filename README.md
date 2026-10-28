@@ -72,6 +72,8 @@ npm run build
 
 Pushes to `main` run `npm ci`, the TypeScript check, and `npm run build`. The workflow publishes `dist/` to GitHub Pages at https://strdst7.github.io/KrackedDMath/. Vite's base path is `/KrackedDMath/` in `vite.config.ts`; update it when changing the deployment path.
 
-## Assets and rights
+## License and assets
 
-This repository contains character and arena artwork. The artwork's origin and redistribution rights are unconfirmed. No license file exists, so do not assume permission to reuse the code or assets.
+The repository includes the [GNU General Public License v3.0](LICENSE) for the game code. Read its terms before copying, modifying, or distributing the code.
+
+The character and arena artwork's origin and redistribution rights remain unconfirmed. Do not assume the code license grants rights to reuse the artwork.
