@@ -177,6 +177,7 @@ export default function App() {
 
   const stageRef = useRef<HTMLDivElement>(null);
   const arenaRef = useRef<HTMLImageElement>(null);
+  const ropeRef = useRef<SVGSVGElement>(null);
   const ropeARef = useRef<SVGPathElement>(null);
   const ropeBRef = useRef<SVGPathElement>(null);
   const ropeCRef = useRef<SVGPathElement>(null);
@@ -977,15 +978,26 @@ export default function App() {
       const lean = Math.max(-9, Math.min(9, world.current.x * 0.09));
       if (boyRef.current) boyRef.current.style.transform = `rotate(${lean}deg)`;
       if (girlRef.current) girlRef.current.style.transform = `rotate(${-lean}deg)`;
-      const sag = 13 + Math.sin(t / 190) * 3 + Math.min(14, Math.abs(world.current.vel) * 0.05);
-      const d = `M 196 126 Q 460 ${126 + sag} 724 130`;
-      ropeARef.current?.setAttribute("d", d);
-      ropeBRef.current?.setAttribute("d", d);
-      ropeCRef.current?.setAttribute("d", d);
-      flagRef.current?.setAttribute(
-        "transform",
-        `translate(${460 + world.current.x * 0.16} ${126 + sag * 0.5})`,
-      );
+      const rope = ropeRef.current;
+      const boy = boyRef.current?.querySelector("img");
+      const girl = girlRef.current?.querySelector("img");
+      if (rope && boy && girl) {
+        const stage = rope.getBoundingClientRect();
+        const red = boy.getBoundingClientRect();
+        const blue = girl.getBoundingClientRect();
+        const x1 = red.left - stage.left + red.width * 0.89;
+        const y1 = red.top - stage.top + red.height * 0.47;
+        const x2 = blue.left - stage.left + blue.width * 0.06;
+        const y2 = blue.top - stage.top + blue.height * 0.42;
+        const midX = (x1 + x2) / 2;
+        const midY = (y1 + y2) / 2 + 5 + Math.sin(t / 190) * 2;
+        const d = `M ${x1} ${y1} Q ${midX} ${midY} ${x2} ${y2}`;
+        rope.setAttribute("viewBox", `0 0 ${stage.width} ${stage.height}`);
+        ropeARef.current?.setAttribute("d", d);
+        ropeBRef.current?.setAttribute("d", d);
+        ropeCRef.current?.setAttribute("d", d);
+        flagRef.current?.setAttribute("transform", `translate(${midX} ${(y1 + 2 * midY + y2) / 4})`);
+      }
 
       if (t - lastFrame > 55) {
         lastFrame = t;
@@ -1378,16 +1390,17 @@ export default function App() {
           className="relative mx-auto h-full w-[min(940px,97vw)] will-change-transform"
         >
           <svg
+            ref={ropeRef}
             className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
             viewBox="0 0 920 280"
             preserveAspectRatio="none"
           >
-            <path ref={ropeARef} d="M 196 126 Q 460 139 724 130" fill="none" stroke="#4a2f16" strokeWidth="27" strokeLinecap="round" />
-            <path ref={ropeBRef} d="M 196 126 Q 460 139 724 130" fill="none" stroke="#c9a26a" strokeWidth="18" strokeLinecap="round" />
-            <path ref={ropeCRef} d="M 196 126 Q 460 139 724 130" fill="none" stroke="#7a4e24" strokeWidth="18" strokeLinecap="round" strokeDasharray="8 12" opacity="0.5" />
-            <g ref={flagRef} transform="translate(460 133)">
-              <line x1="0" y1="-26" x2="0" y2="20" stroke="#2a1a0c" strokeWidth="2.5" />
-              <polygon points="0,-26 20,-20 0,-13" fill="#ffb020" />
+            <path ref={ropeARef} fill="none" stroke="#4a2f16" strokeWidth="14" strokeLinecap="round" />
+            <path ref={ropeBRef} fill="none" stroke="#c9a26a" strokeWidth="10" strokeLinecap="round" />
+            <path ref={ropeCRef} fill="none" stroke="#7a4e24" strokeWidth="3" strokeDasharray="5 6" opacity="0.7" />
+            <g ref={flagRef}>
+              <line x1="0" y1="-12" x2="0" y2="6" stroke="#2a1a0c" strokeWidth="2" />
+              <polygon points="0,-12 13,-9 0,-4" fill="#ffb020" />
             </g>
           </svg>
 
