@@ -4,9 +4,6 @@ KrackedDMath is a browser-based mental-math tug-of-war game for solo players and
 
 [![Deploy game](https://github.com/strdst7/KrackedDMath/actions/workflows/deploy.yml/badge.svg)](https://github.com/strdst7/KrackedDMath/actions/workflows/deploy.yml)
 [![Play online](https://img.shields.io/badge/Play-online-ffb020)](https://strdst7.github.io/KrackedDMath/)
-[![Top 1% goal](https://img.shields.io/badge/Top%201%25-goal-25d9ff)](https://github.com/strdst7/KrackedDMath)
-
-> **Badge note:** “Top 1%” names a goal, not a measured repository ranking.
 
 ## The game
 
