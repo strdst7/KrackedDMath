@@ -2,6 +2,7 @@ import type { CardView } from "../game/types";
 
 const KEYS_LEFT = ["1", "2", "3", "4"];
 const KEYS_RIGHT = ["←", "↑", "↓", "→"];
+const BOT_SHAPES = ["◆", "★", "●", "▲"];
 
 export function CombatCard({
   view,
@@ -87,10 +88,10 @@ export function CombatCard({
                 className={`opt-btn px-2 py-2.5 ${cls}`}
               >
                 <span
-                  className="num absolute left-1.5 top-1 text-[9px]"
+                  className={`num absolute left-1.5 top-1 ${view.botRemain !== null ? "text-[16px]" : "text-[9px]"}`}
                   style={{ color: picked && view.flash ? "inherit" : "#8b99ad", opacity: 0.9 }}
                 >
-                  {keys[i]}
+                  {view.botRemain !== null ? BOT_SHAPES[i] : keys[i]}
                 </span>
                 <span className="num block text-center text-[19px] font-bold leading-none sm:text-[21px]">
                   {opt}

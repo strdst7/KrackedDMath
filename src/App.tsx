@@ -1391,11 +1391,11 @@ export default function App() {
             </g>
           </svg>
 
-          <div id="fighter-left" ref={boyRef} className="absolute bottom-[8%] left-[1%] w-[min(286px,39vw)] origin-bottom">
+          <div id="fighter-left" ref={boyRef} className="absolute bottom-[8%] left-[1%] w-[min(225px,31vw)] origin-bottom">
             <div className="absolute bottom-0 left-1/2 h-4 w-[58%] -translate-x-1/2 rounded-[100%] bg-black/45 blur-[7px]" />
             <img src={boyArt} alt="Red contender" draggable={false} className="relative w-full drop-shadow-[0_20px_14px_rgba(0,0,0,0.5)]" />
           </div>
-          <div id="fighter-right" ref={girlRef} className="absolute bottom-[6%] right-[-1%] w-[min(306px,41vw)] origin-bottom">
+          <div id="fighter-right" ref={girlRef} className="absolute bottom-[6%] right-[-1%] w-[min(165px,22vw)] origin-bottom">
             <div className="absolute bottom-0 left-1/2 h-4 w-[58%] -translate-x-1/2 rounded-[100%] bg-black/45 blur-[7px]" />
             <img src={girlArt} alt="Blue contender" draggable={false} className="relative w-full drop-shadow-[0_20px_14px_rgba(0,0,0,0.5)]" />
           </div>
